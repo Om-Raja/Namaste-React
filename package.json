@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Om-Raja/Namaste-React.git"
+  },
+  "author": "Om Raja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Om-Raja/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/Om-Raja/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
