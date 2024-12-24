@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client"; // --> /client is used to avoid the error of ReactDOM not found
+
 //creating element and rendering react
 var heading = React.createElement("h1", {id: "heading", class: "h1"}, "greetings from React");
 var root = ReactDOM.createRoot(document.getElementById("root"));
