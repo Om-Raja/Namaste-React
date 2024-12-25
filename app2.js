@@ -53,7 +53,10 @@ const ExerciseComponent = () => {
 const CompositionComponent = () => {
   return (
     <div>
+        // * Three ways of using Functional component
       <ExerciseComponent />
+      <ExerciseComponent></ExerciseComponent>
+      {ExerciseComponent()}
       <h2>Heading second by composition component</h2>
     </div>
   );
