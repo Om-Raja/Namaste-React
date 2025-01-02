@@ -8,6 +8,8 @@
 
 [Episode-4 notes](https://docs.google.com/document/d/12ShxmR0b0AzjwnK01uzFNgw0EcmxHBMz/edit?usp=drive_link&ouid=115259898732327540831&rtpof=true&sd=true)
 
+[Episode-5 notes](https://docs.google.com/document/d/13SxOoUTn1ey4W4N5y3BRkJrnOOK6HFVw/edit?usp=drive_link&ouid=115259898732327540831&rtpof=true&sd=true)
+
 # Parcel 🚀
 - Caching
 - Tree shaking - Removes dead code
