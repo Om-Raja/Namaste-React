@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Learning React",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start": "parcel swiggy.html",
+    "build": "parcel build swiggy.html",
     "test": "jest"
   },
   "repository": {
