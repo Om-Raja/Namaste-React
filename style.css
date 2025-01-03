@@ -43,7 +43,7 @@
     line-height: 1px;
     align-items: start;
     padding: 4px;
-    background-color: #f0f0f0;
+    background-color: #e3dbdb;
 }
 .restaurantCard:hover{
     cursor: pointer;
@@ -52,6 +52,7 @@
 .restaurantCard .cardLogo{
     width: 98%;
     padding: 2px;
+    /* aspect-ratio: 1 / 1; */
 }
 .cusine{
     color: gray;
