@@ -3,38 +3,62 @@ import restaurantList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
-
 const Body = () => {
   //state variable
   const [listOfRestaurants, setListOfRestaurants] = useState(restaurantList);
+  const [filteredRes, setFilteredRes] = useState(listOfRestaurants);
+  const [searchText, setSearchText] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-  },[])
+  }, []);
 
-  const fetchData = async ()=>{
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.900965&lng=75.8572758&collection=83637&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.900965&lng=75.8572758&collection=83637&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null",
+    );
 
     const json = await data.json();
-    console.log(json.data.cards[2].card.card.info);
+    // console.log(json.data?.cards[2]?.card?.card?.info); //optional chaining is used
 
     // setListOfRestaurants(json);
   };
 
   // conditional rendering - A rendering based on some condition.
- /* if(listOfRestaurants.length === 0){
+  /* if(listOfRestaurants.length === 0){
     return (<h1>Loading...</h1>); // this is a bad way for UX that's why we use shimmer UI
-  } */ 
- //replacing above code by ternary operator below with return keyword
-  
-  return (listOfRestaurants.length === 0)? <Shimmer/> : (
+  } */
+  //replacing above code by ternary operator below with return keyword
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div id="body">
-      <div id="search_bar"></div>
+      <div id="search_bar">
+        <input
+          className="search-box"
+          type="text"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);            
+          }}
+        ></input>
+        <button className="search-btn" onClick={() => {
+
+          const filteredListOfRestaurants123 = listOfRestaurants.filter((res)=>res.restaurantName.toLowerCase().includes(searchText.toLowerCase()));
+          console.log(filteredListOfRestaurants123);
+
+          setFilteredRes(filteredListOfRestaurants123);
+
+        }}>
+          Search
+        </button>
+      </div>
       <button
         className="filter_button"
         onClick={() => {
           filteredRestaurantList = restaurantList.filter(
-            (res) => res.avgRating > 4
+            (res) => res.avgRating > 4,
           );
           setListOfRestaurants(filteredRestaurantList);
         }}
@@ -43,7 +67,7 @@ const Body = () => {
       </button>
 
       <div id="restaurantCardContainer">
-        {listOfRestaurants.map((restaurant) => {
+        {filteredRes.map((restaurant) => {
           return (
             <RestaurantCard
               key={restaurant.restaurantId}
