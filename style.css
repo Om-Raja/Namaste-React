@@ -61,3 +61,14 @@
     font-weight: 600;
     font-size: 1.2rem;
 }
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    width:200px;
+    height: 400px;
+    background-color:#e3dbdb;
+    background: linear-gradient(#e3dbdd, #cfdffd);
+}
