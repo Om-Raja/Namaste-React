@@ -1,5 +1,6 @@
 import { NAV_LOGO } from "../utils/constant";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Heading = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
@@ -10,10 +11,10 @@ const Heading = () => {
       </div>
       <div id="navbar">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/cart">Cart</Link></li>
           <button
             className="loginBtn"
             onClick={() => {

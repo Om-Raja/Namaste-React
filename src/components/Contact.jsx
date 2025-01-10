@@ -18,6 +18,7 @@ const Contact = () => {
           setMessage(e.target.value);
         }}
       ></input>
+      <button>Send</button>
     </div>
   );
 };

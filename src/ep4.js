@@ -4,7 +4,9 @@ import Heading from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./components/Error";
+import Cart from "./components/Cart";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // Making project like swiggy
 /* 
@@ -28,7 +30,7 @@ const AppLayout = () => {
   return (
     <div>
       <Heading />
-      <Body />
+      <Outlet /> 
     </div>
   );
 };
@@ -37,15 +39,34 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />
+      }
+    ]
   },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
+  // {
+  //   path: "/about",
+  //   element: <About />,
+  // },
+  // {
+  //   path: "/contact",
+  //   element: <Contact />,
+  // },
 ]);
 
 
