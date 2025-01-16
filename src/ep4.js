@@ -6,7 +6,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Cart from "./components/Cart";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import SingleResPage from "./components/singleResPage";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 
 // Making project like swiggy
 /* 
@@ -26,7 +27,11 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
         * address
 */
 
+
 const AppLayout = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const resID = queryParams.get("resID");
   return (
     <div>
       <Heading />
@@ -56,6 +61,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />
+      },
+      {
+        path: "/restaurant/:resID", //dynamic part is written after colon
+        element: <SingleResPage />,
       }
     ]
   },
