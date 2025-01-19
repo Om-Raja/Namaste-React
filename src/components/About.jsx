@@ -4,7 +4,7 @@ const About = () => {
         <div id="about">
             <h2>This is about us page</h2>
             <p>We're learning React from Namaste React</p>
-            <AboutClass />
+            <AboutClass name={"Om Raja"}/>
         </div>
     )
 }
